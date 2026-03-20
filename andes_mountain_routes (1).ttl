@@ -1,0 +1,623 @@
+@prefix andes: <https://www.andeshandbook.org/montanismo/cerro/> .
+@prefix andont: <http://example.org/andeshandbook/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix env: <http://example.org/environment/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix retc: <http://example.org/retc/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+andont:activityType a owl:ObjectProperty ;
+    rdfs:label "Tipo de actividad de montaña"@es .
+
+andont:difficulty a owl:DatatypeProperty ;
+    rdfs:label "Dificultad técnica"@es ;
+    rdfs:range xsd:string .
+
+andont:elevation a owl:DatatypeProperty ;
+    rdfs:label "Elevación en metros"@es ;
+    rdfs:range xsd:integer .
+
+andont:inProtectedArea a owl:ObjectProperty ;
+    rdfs:label "Área protegida que contiene la ruta"@es .
+
+andont:nearStation a owl:ObjectProperty ;
+    rdfs:label "Estación ambiental cercana"@es .
+
+<http://example.org/environment/protected/SNASPE-002> a andont:ProtectedArea ;
+    env:areaHectares 59082 ;
+    env:category "Parque Nacional"@es ;
+    dcterms:source "SNASPE-CONAF Chile"^^xsd:string ;
+    schema1:addressRegion "Atacama"@es ;
+    schema1:latitude -27.08 ;
+    schema1:longitude -68.78 ;
+    schema1:name "Parque Nacional Nevado de Tres Cruces"@es .
+
+<http://example.org/environment/protected/SNASPE-003> a andont:ProtectedArea ;
+    env:areaHectares 73987 ;
+    env:category "Reserva Nacional"@es ;
+    dcterms:source "SNASPE-CONAF Chile"^^xsd:string ;
+    schema1:addressRegion "Antofagasta"@es ;
+    schema1:latitude -23.33 ;
+    schema1:longitude -68.15 ;
+    schema1:name "Reserva Nacional Los Flamencos"@es .
+
+<http://example.org/environment/station/MMA-002> a andont:EnvironmentalStation ;
+    env:avgValue 45.1 ;
+    env:measuredParameter "PM10"^^xsd:string ;
+    env:measurementDate "2025-06-15"^^xsd:date ;
+    dcterms:source "SINIA-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Atacama"@es ;
+    schema1:latitude -27.37 ;
+    schema1:longitude -70.33 ;
+    schema1:name "Estación Copiapó"@es .
+
+<http://example.org/environment/station/MMA-003> a andont:EnvironmentalStation ;
+    env:avgValue 12.8 ;
+    env:measuredParameter "PM2.5"^^xsd:string ;
+    env:measurementDate "2025-06-15"^^xsd:date ;
+    dcterms:source "SINIA-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Antofagasta"@es ;
+    schema1:latitude -22.91 ;
+    schema1:longitude -68.2 ;
+    schema1:name "Estación San Pedro de Atacama"@es .
+
+retc:establecimiento_410550 a retc:Establecimiento ;
+    retc:anioReporte 2019 ;
+    retc:comuna "San Pedro de Atacama"@es ;
+    retc:emisionCO2 12350.0 ;
+    retc:emisionMP 78.3 ;
+    retc:emisionNOx 15.2 ;
+    retc:emisionSO2 25.1 ;
+    retc:empresa "MINERA ESCONDIDA LTDA" ;
+    retc:idVentanillaUnica 410550 ;
+    retc:residuosNoPeligrosos 1250.0 ;
+    retc:residuosPeligrosos 285.0 ;
+    retc:rubro "Extracción de minerales de cobre"@es ;
+    dcterms:source "RETC-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Region de Antofagasta"@es ;
+    schema1:name "PLANTA CONCENTRADORA ESCONDIDA"@es ;
+    geo1:lat -22.91 ;
+    geo1:long -68.2 .
+
+retc:establecimiento_425301 a retc:Establecimiento ;
+    retc:anioReporte 2019 ;
+    retc:comuna "Copiapó"@es ;
+    retc:emisionCO2 8542.1 ;
+    retc:emisionMP 45.6 ;
+    retc:emisionNOx 8.7 ;
+    retc:emisionSO2 12.4 ;
+    retc:empresa "EMPRESA MINERA CASERONES" ;
+    retc:idVentanillaUnica 425301 ;
+    retc:residuosNoPeligrosos 850.2 ;
+    retc:residuosPeligrosos 120.5 ;
+    retc:rubro "Extracción de minerales de cobre"@es ;
+    dcterms:source "RETC-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Region de Atacama"@es ;
+    schema1:name "PLANTA CONCENTRADORA CASERONES"@es ;
+    geo1:lat -27.37 ;
+    geo1:long -70.33 .
+
+retc:nearbyEmitter a owl:ObjectProperty ;
+    rdfs:label "Emisor RETC cercano a la ruta"@es .
+
+andes:1 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 4647 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El Morado es una de las montanas mas emblematica y bella de los Andes centrales de Chile y debe su nombre a los lugarenos y arrieros del sector que, haciendo referencia al color que proyecta la roca de la impresionante y temida pared sur, la bautizaron asi. Su imagen es sorprendente cuando se le observa desde el sur, especialmente desde la laguna de Morales del Monumento Natural El Morado. Los primeros intentos serios de ascenso de este cerro datan de 1926 cuando Sebastian Kruckel junto a Eschenburg y Fentzahn encontro una ruta posible de ascenso desde el Yeso por la cara norte del cerro. Siete anos mas tarde, Kruckel logro completar esta ruta. Durante ese periodo se repitieron varios intentos mas, la mayoria por la misma cara, actualmente ignorada por los montanistas. La primera ascension absoluta la realizaron Sebastian Kruckel y Otto Pfenniger , ambos del club DAV, el 22 de diciembre de 1933 por la ruta norte desde el Yeso. Para realizar esta hazana, se internaron por el valle del rio Yeso para luego entrar por el estero Cortaderas hasta la faz noreste del cerro. Ahi, entre acarreos, rocas y canaletas de nieve, llegaron por primera vez hasta la cumbre de esta majestuosa montana. Varios anos mas tarde, el 4 de marzo de 1942, Carlos Piderit y Jorge Silva Piderit lograron alcanzar la cumbre por la cara suroeste del cerro. Esta vez, ingresaron por el valle del estero Morado hasta los pies de la pared suroeste, para luego escalar por roca, nieve y hielo hasta la cima. Esta ruta corresponde aproximadamente a la actual ruta Normal a pesar de que sus aperturistas hablaron en un principio de un ascenso por la pared Sur. Mas tarde se conoceria con este nombre a la pared bajo la cumbre Sur del cerro. En 1949 la socia del club Lodestar, Nelly Chavez , anoto el primer ascenso femenino al Morado. En abril de 2007, Fernando Fainberg y Waldo Farias abren un nuevo itinerario a la montana sin alcanzar la cima. La ruta transcurre por la arista noreste hasta conectar ba"@es ;
+    schema1:latitude -33.716667 ;
+    schema1:longitude -70.05 ;
+    schema1:name "Cerro Morado (4647m) - Andeshandbook"@es ;
+    schema1:url andes:1 .
+
+andes:10 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 5257 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El valle del Embalse del Yeso esta dominado por el sur por la enormidad del Meson Alto. No solo su tamano sorprende y domina la escena sino que su original forma de verdadera mesa glacial impacta desde sus pies, mas aun cuando se avanza casi sin tomar altura por la meseta, como si fuera un pequeno campo de hielo perdido en la altitud de una montana presumida. Ademas, su cara sur es famosa por tener una de las rutas mas interesantes y complicadas de los Andes centrales. El primer intento de ascenso serio al Meson Alto data de 1927 cuando un grupo del DAV lo intento accediendo a el por el cajon de las Lenas, tributario del rio Yeso. Tras pasar una noche a la intemperie, al dia siguiente, el grupo liderado por Sebastian Kruckel , sintiendo el cansancio de una mala noche, se desvio de su objetivo y ascendio una cumbre desconocida, innominada en esa epoca y la que Kruckel llamo cerro Cayman . Actualmente no se tiene certeza acerca de que cerro podria ser este Cayman, pero la experiencia sirvio para no volver a intentar el ascenso del Meson Alto por esta ruta. Primeras ascensiones Primera ascension absoluta: 1929. Pfenniger, Wolf, Maass y Conrads . Ruta realizada por el estero Cortaderas . Primera ascension por Paso Ventana : 1949. Bachmann y Echevarria . Primera ascension de la Punta Gervasutti :1951. Raquel Herrera, Osiel Gonzalez, Raul Celery y Sergio Kunstmann repiten la ruta del primer ascenso a la cumbre principal, pero en lugar de dar un giro hacia la izquierda en la parte superior del glaciar, atacan por un canalon la cara Suroeste. La Punta Gervasutti corresponde a una cumbre secundaria al sur de la principal. Su nombre proviene del montanista italiano Giusto Gervasutti , fallecido en 1946 en el Mont Blanc y conocido por sus ascensiones en Chile al Littoria , Punta Italia y Tronador . Primera ascension de la Punta Saavedra: en 1951 por Aravena, Diaz, Duprat, Rivera y Velastin . La Punta Saavedra corresponde a la cumbre mas austral del macizo y el IGM"@es ;
+    schema1:latitude -33.666667 ;
+    schema1:longitude -70.033333 ;
+    schema1:name "Cerro Meson Alto (5257m) - Andeshandbook"@es ;
+    schema1:url andes:10 .
+
+andes:1001 a andont:MountainRoute ;
+    andont:activityType "Volcán"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 4097 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Granito, con sus 4130m, se alza en uno de los rincones mas olvidados de la zona central de los Andes chilenos, especificamente al Suroeste del poco recordado portezuelo La Paloma, el que separa el cajon homonimo hacia el Norte de un extenso valle sin nombres oficiales hacia el Sur, el que remata en la ribera septentrional de la hermosa laguna Negra. Esta montana cierra por el Oeste, en conjunto con el cerro Murallon , lo que se conoce como la \"Segunda Quebrada\", al Norte de la laguna antes senalada; por otro lado, su cara este cae a otra quebrada olvidada, la del estero Relvo, la que alberga la laguna del mismo nombre, y cuyas aguas desembocan en el rio Colorado, estando a su vez franqueada por el Oeste por el filo de cumbres que en su vertiente oriental dan nacimiento al estero Aucayes. Dicho sector, donde abundan cumbres \"olvidadas\" tales como el Echaurren , Alto de las Amarillas , Punta del Paraiso, entre otros, no siempre fue tan desconocido como lo es en la actualidad. En decadas anteriores la travesia entre el Embalse el Yeso y el sector del Alfalfal era un recorrido que se efectuaba con relativa frecuencia, siendo parte de los circuitos de trekking que realizaban los clubes durante las etapas de formacion de nuevos montanistas. Hoy son los arrieros los que hacen uso de estos olvidados senderos por el andinismo nacional para pasar de un lado a otro de la cordillera, junto con pescadores y cazadores que sacan provecho de dichas huellas. Sobre sus ascensos lamentablemente hay pocos antecedentes. Su primer ascenso fue realizado por los socios del DAV Santiago Adolf Bethke (DE) y Walter Klatt (DE) en el ano 1933. Este ultimo fue un cartografo que junto a Federico Fickenscher publico en 1929 uno de los primeros mapas andinos de Chile, la denominada \" Carta de Excursionismo de la Cordillera Central \" a escala 1:250.000, que tuvo una reedicion en 1935, y de la que Louis Lliboutry se sirvio posteriormente para la confeccion de la suya. Ademas en"@es ;
+    schema1:latitude -33.55 ;
+    schema1:longitude -70.116667 ;
+    schema1:name "Cerro Granito (4097m) - Andeshandbook"@es ;
+    schema1:url andes:1001 .
+
+andes:1005 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 3975 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Murallon es una montana de silueta agreste, que se encuentra completamente escondida a la vista del montanista comun. Cierra por el Oeste en conjunto con el cerro Granito lo que se conoce como la \"Segunda Quebrada\", al norte de la laguna Negra y en las cercanias del portezuelo La Paloma, en los Andes Centrales; por otro lado, su cara oeste cae a otra quebrada olvidada, la del estero Relvo, que alberga la laguna del mismo nombre, cuyas aguas desembocan en el rio Colorado, y que esta franqueada por el Oeste por el filo de cumbres que en su vertiente oriental dan nacimiento al estero Aucayes. Actualmente arrieros y glaciologos conocen mucho mas este sector que los andinistas nacionales, quienes quiza desanimados por las restricciones de acceso que impone la empresa AES GENER, y poco dados a buscar nuevos terrenos de accion, han evitado recorrer estos hermosos parajes no tan lejanos de los circuitos habituales de ascensos que se realizan en las zonas cercanas al Embalse El Yeso. En sus faldeos se encuentra un viejo refugio de la Direccion General de Aguas -DGA-, el que lamentablemente reparte basura y desechos en un amplio radio alrededor suyo; ademas al Sureste de dicha construccion se encuentra la estacion meteorologica Echaurren Alto, compuesta de instrumental que permite monitorear la zona del maltratado glaciar Echaurren. Las cumbres del sector de la laguna Negra han sufrido de un desmerecido olvido por parte de la comunidad de andinistas nacionales. Muestra de aquello, son las decenas de montanas que son raramente visitadas y ascendidas en dicho sector, como por ejemplo, el Echaurren , Granito , y el mismo Murallon. Ahora bien, esta area en el pasado era objeto de constante actividad deportiva, siendo la travesia entre el Embalse el Yeso y el sector del Alfalfal un recorrido que se efectuaba con relativa frecuencia, en el marco de los circuitos de trekking que realizaban los clubes durante las etapas de formacion de nuevos montanistas. Hoy so"@es ;
+    schema1:latitude -33.55 ;
+    schema1:longitude -70.116667 ;
+    schema1:name "Cerro Murallon (3975m) - Andeshandbook"@es ;
+    schema1:url andes:1005 .
+
+andes:1008 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 4930 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Octogesimo esta ubicado en la frontera chileno-argentina, en el filo de cumbres que se proyecta de Norte a Sur desde el cerro Piramide hasta el macizo del Marmolejo , el seismil mas austral del mundo. Especificamente se encuentra al sur del paso Piuquenes , siendo la ultima montana antes de que el filo conecte con el Marmolejo . Su nombre obedece a que durante el 2018 el club andino Aguila Azul celebro sus 80 anos de existencia. Dentro de las actividades de conmemoracion, sus socios se propusieron la ambiciosa meta de realizar, durante ese mismo ano, el ascenso a 80 cumbres, siendo esta ademas la ultima en alcanzarse. De ahi su doble coincidencia con el numero 80: aniversario del club y ultima cima del reto de aniversario. Con poco mas de 100m de prominencia, el cerro fue ascendido por primera vez entre navidad y ano nuevo de ese ano. La ruta elegida fue desde Termas del Plomo siguiendo el sendero al paso de Piuquenes hasta aprox. la cota 3500m, punto desde donde tomaron un cajon que se proyecta hasta las faldas del cerro, el cual ascendieron por su vertiente norte."@es ;
+    schema1:latitude -33.683333 ;
+    schema1:longitude -69.866667 ;
+    schema1:name "Cerro Octogesimo (4930m) - Andeshandbook"@es ;
+    schema1:url andes:1008 .
+
+andes:101 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 5350 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion La vista que se tiene desde Santiago de la Cordillera de los Andes contiene 3 puntos focales: el Plomo como rey y senor presidiendo la zona, el bloque Altar - Paloma y la sierra de Ramon en primer plano. Entre el Plomo y el Altar , sin embargo, son claramente distinguibles (pero para pocos identificables) las grandes paredes de roca que emergen y esconden detras de si al hermoso glaciar Esmeralda. Son el Littoria (mas cercano al Plomo ) y el Fickenscher, que junto a los ya mencionados conforman la barrera que oculta y separa el valle del rio Olivares del valle de Santiago. Posiblemente a nivel topografico pueden considerarse tan solo estribaciones septentrionales del Plomo , pero a ojos de montanista adquieren personalidad y vida propia, pues representan un desafio totalmente distinto, que poco tiene en comun con la ruta normal de este. La travesia Altar - Littoria - Plomo es una opcion tan poco frecuente como atractiva, con una fuerte glaciacion por la ladera este de ambos. Tanto el Fickenscher como el Littoria son muy poco ascendidos, porque sus accesos mas naturales son inutilizables por los montanistas, salvo aquel que permite entrar al cajon del Olivares, por el paso existente entre el cerro Bismarck y el cerro Cepo , y que parte desde Piedra Numerada en el valle del rio Molina. En efecto, la barrera burocratica de las minas Andina y Los Bronces (ex Disputada) hacen imposible ingresar por donde naturalmente deberia ser el acceso a estos cerros, y la ascension desde Yerba Loca es reconocidamente dificil, requiriendo escalar sistemas de roca muy complicados. Toponimia El cerro se llama Fickenscher - nombre poco local - en honor al topografo y andinista chileno Federico Fickenscher Vidal (1881-1957) y su contribucion a la cartografia de montana. Junto con Wilhelm Klatt produjo dos ediciones de su conocida Carta de Excursionismo para la Cordillera Central (en 1929 y 1935), a escala 1:100.000, basada en levantamientos de Riso Patron y Reichert . En ese"@es ;
+    schema1:latitude -33.2 ;
+    schema1:longitude -70.2 ;
+    schema1:name "Cerro Fickenscher (5350m) - Andeshandbook"@es ;
+    schema1:url andes:101 .
+
+andes:1013 a andont:MountainRoute ;
+    andont:activityType "Montañismo"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 2375 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El Morro Dona Isidora viene siendo para San Jose de Maipo, lo que los cerros de la Sierra de Ramon son para Santiago; su montana tutelar, la que completa el paisaje hacia el Oeste, dandole al pueblo esa agradable sensacion de estar encerrado entre montanas. A pesar de ser ampliamente visible desde la Plaza de Armas de San Jose de Maipo, y practicamente desde cualquier punto donde uno dirija la mirada hacia el Oeste, el Morro Dona Isidora no es para nada una montana frecuentada, siendo sus vecinos inmediatos hacia el sur, el Morro Buitrero y el San Roque , los que se llevan la mayor atencion del sector en cuanto a visitas. Hay poquisimos antecedentes sobre su historia deportiva, por no decir ninguno, pero siendo una montana tan cercana es esperable que haya tenido epocas mas populares; sin embargo, tampoco hay senderos claros que lleven hasta su cumbre, esto, hasta la construccion del Gaseoducto de Gas Andes (1997) el cual dejo una amplia y horrible cicatriz en forma de camino vehicular, ahora en desuso, que conecta el Cajon del Maipo con Pirque. Este camino puede usarse para subir en un sencilla jornada hasta el portezuelo que separa el Morro Dona Isidora del cerro Morro Sucio (donde comienza a bajar hacia Pirque), para luego seguir en direccion noreste, pasando por las pequenas cumbres del Morro del Peumo y el cerro Iglesias, hasta llegar a la cumbre de esta poco considerada montana de la precordillera de San Jose de Maipo. Todo el sector presenta amplias posibilidades para la practica de trekking y media montana invernal. Sumado a los ya mencionados Morro Buitrero y San Roque , presenta igualmente opciones de ascenso para los cerros Papagayo , Purgatorio , Morro las Heladas, Loma del Diablo y varios otros, asi como travesias que permiten conectar varias cumbres siguiendo hermosos recorridos con grandiosas vistas que abarcan toda la zona norte y sur de la cordillera central. Una estupenda opcion para escapar un poco de la masificacion actual de algunos"@es ;
+    schema1:latitude -33.633333 ;
+    schema1:longitude -70.383333 ;
+    schema1:name "Morro Dona Isidora (2375m) - Andeshandbook"@es ;
+    schema1:url andes:1013 .
+
+andes:1020 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 5720 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion Al ingresar desde el sur al campo de los glaciares Olivares y Juncal Sur, hay una montana que se roba las miradas. Por el sur, una ladera eterna con una pendiente que permite alojar neveros durante todo el ano, atrae las miradas de quienes se adentran a estos rincones. Por el este, una pared indomable llena de canalones sin salida y muchisima roca de desconocida calidad le entrega un caracter temible. Jozsef Ambrus lo definio asi: \"Hermoso cerro de formas atrevidas que se encuentra en el sector sur del nudo Juncal; se proyecta sobre la parte superior del glaciar Juncal Sur, superando la cuenca oeste del Campo Central de Neviza. Visible desde el rio Leones, y desde casi todos los puntos del glaciar Juncal Sur.\" Su nombre lo deja injustamente relegado a ser un cerro ignorado, por el imponente Nevado Juncal , cuya cara sur, plagada de seracs, forma un anfiteatro junto al Juncal Chico en el lugar donde nace el glaciar Juncal Sur. Pero para todo quien haya visitado la zona, es innegable que el Juncal Chico es un cerro con personalidad propia y extrana la poca documentacion que existe al respecto. El primer ascenso lo realizo una cordada de tres compuesta por Manuel Bazan, Radko Sneberger y Aldo Cassasa, por la cara sur, el 9 de enero de 1957. La ruta se realizo cruzando el glaciar Juncal Sur frente al Campo Central, llegando a las pendientes Sur-Suroeste que van en direccion a la cumbre este. Luego, alcanzaron el filo que une ambas cumbres, para asi llegar desde el Este a la cumbre principal. Referencias Ambrus, Jozsef (1967). Guia de los Andes Centrales. Parte VI - Zona Rio Leones . Obra inedita (pag. 11). Alta Montana. Revista Andina Ndeg84 - 1957 . Club Andino de Chile (pag. 21)"@es ;
+    schema1:latitude -33.066667 ;
+    schema1:longitude -70.1 ;
+    schema1:name "Cerro Juncal Chico (5720m) - Andeshandbook"@es ;
+    schema1:url andes:1020 .
+
+andes:103 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 3623 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion Hacia el final del Santuario de la Naturaleza y el estero Arrayan, al cual da origen, el cerro Los Angeles se levanta como uno mas del \"club de los olvidados\". Pocas veces visible, esta montana solitaria se ha mantenido lejos de caminos e instalaciones humanas, cosa que en parte explica su escasa popularidad. Sin embargo, si la aproximacion se pudiese realizar por el camino que conduce a la mina Los Bronces (ex La Disputada), cambiarian las cosas; lamentablemente su acceso esta estrictamente restringido. El cerro Los Angeles corresponde al punto mas elevado de la llamada Sierra Ortiga, la cual se levanta al Este del Cordon de los Espanoles y queda rodeada por el estero del Arrayan al Oeste y el estero Ortiga al Este. El nombre del cerro ha sido motivo de cierta confusion. Llamado simplemente cerro Angeles en la carta de Lliboutry y sin nombre en la carta del IGM, en alguna bibliografia se lo llamo Nevado de los Angeles, nombre que adquirio cierta popularidad y que esta claramente equivocado puesto que el cerro no tiene glaciares ni neveros permanentes."@es ;
+    schema1:latitude -33.166667 ;
+    schema1:longitude -70.383333 ;
+    schema1:name "Cerro Los Angeles (3623m) - Andeshandbook"@es ;
+    schema1:url andes:103 .
+
+andes:104 a andont:MountainRoute ;
+    andont:activityType "Glaciar"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 2898 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion Quiso el destino que a los pies del \"Huelen\" fundara Pedro de Valdivia la ciudad de Santiago. En tal situacion, la Sierra de Ramon hizo de telon de fondo y acogio las visitas de quienes se sentian llamados a las cumbres, con su figura y omnipresencia. La hubiera fundado Valdivia un poco mas al norte y seria otro el cordon que hubiera tomado su lugar como destino preferido. Sin embargo, pocos se adentran en este macizo, que cuenta con las mismas cualidades escenicas, aunque mas vegetacion, y representa un similar desafio deportivo. El Arqueado de Barrera pertenece al Cordon de los Espanoles, que separa al valle de la Dehesa del estero Arrayan y el Santuario de la Naturaleza. Habitualmente la gente se refiere a el simplemente como el cerro Carpa . Este, sin embargo, no es mas que el hermano menor de la montana dominante: el \"Arqueado de Barrera\". Posiblemente, el escaso publico se explique por el acceso. Pese a su cercania, las dos entradas directas desde Santiago presentan problemas: tanto en el club ecuestre, al que se llega desde Avenida la Dehesa, como por el club de campo \"Hacienda Santa Martina\" existen barreras que impiden el paso si no se tienen las autorizaciones o las membresias del caso. Nada, en todo caso, que no pueda ser abordado con diplomacia o discrecion. Una tercera alternativa es desde el Santuario de la Naturaleza. Nota para cerros con prominencia menor a 100m El equipo editorial de Andeshandbook publica de preferencia cerros que tienen una prominencia de, al menos, 100m y en el caso de algunas agujas rocosas 50m (1 largo de cuerda). Sin embargo, existen excepciones para cerros con una prominencia menor, originadas por cumplir con una o varias de las siguientes condiciones: Historia: Esto quiere decir que existen antecedentes anteriores a la fecha de la publicacion del cerro en los cuales se habla de el. Usualmente son aceptados como cerros, nombres mencionados en publicaciones de cierto reconocimiento. Dentro de estas ultimas podemos"@es ;
+    schema1:latitude -33.216667 ;
+    schema1:longitude -70.466667 ;
+    schema1:name "Cerro Arqueado de Barrera (2898m) - Andeshandbook"@es ;
+    schema1:url andes:104 .
+
+andes:1040 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 4520 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Los Negros es de los mas misteriosos del cajon del rio Colorado, porque solo es visible desde las proximidades de Aguas Azules, para desaparecer de la vista rapidamente a quienes se internan en el cajon, aunque aparece claramente identificado en la carta del IGM. Desde el cerro El Plomo o desde el Leonera es apenas visible en los dias de aire muy trasparente y su silueta se confunde facilmente con algunas cadenas mas altas que estan detras (al Este). Algunos arrieros familiarizados con el cajon del Colorado suelen confundirlo con una cumbre previa, a 4000m aproximadamente, a la que los primeros ascensionistas nombraron Los Negritos. El hecho de que la cumbre sea visible solo un instante desde el sendero hacia el Tupungato y que la aproximacion se haga sin tenerlo a la vista (la cumbre solo aparece nuevamente al estar a pocos metros de ella) ha contribuido a mantener su misterio. El nombre parece venir de que en la parte inferior se encuentra un rio de lava negra, que culmina y atraviesa la explanada que une Aguas Azules con Aguas buenas, en la ruta que se dirige al Tupungato . Hacia el noreste de Los Negros se encuentran los contrafuertes que contienen el glaciar Tupungatito por ese mismo lado. La aproximacion y ascenso se produce por rutas variadas, de rocas coloridas, con magnificas vistas, flanqueado al suroeste por un precipicio bajo el cual se encuentran los rios Azufre y Museo. Puede ser, ademas, un complemento a otros ascensos: el cerro Gotico, en las proximidades, al oeste, o como entrenamiento al Tupungato o Tupungatito . La cumbre fue lograda en un tercer intento. El primero, en marzo de 2016, lo realizaron Alejandra Perez (CL) y Hernan Neira (CL). En esa oportunidad se exploro la ruta por el estero de Mona, la que fue descartada; en la parte inferior se cruza por un cajon estrecho y con huellas de caida de rocas. En el segundo, en noviembre del mismo ano, participaron Hugo Arenas (CL), Jorge Cartagena (CL) y Hernan Neira (CL), y se l"@es ;
+    schema1:latitude -33.4 ;
+    schema1:longitude -69.883333 ;
+    schema1:name "Cerro Los Negros (4520m) - Andeshandbook"@es ;
+    schema1:url andes:1040 .
+
+andes:1058 a andont:MountainRoute ;
+    andont:activityType "Montañismo"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 2062 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Las Sierrecillas es una desconocida montana ubicada en la cordillera de La Costa de la Region Metropolitana. Se trata del punto mas alto del llamado cordon Las Sierrecillas, el cual esta formado por una serie de elevaciones que, alineadas de Este a Oeste, muestran una silueta similar a la de una sierra. Estas elevaciones superan los 2000m de altitud por lo que es problable que en invierno se encuentren cubiertas de nieve. El cerro Las Sierrecillas, ubicado aproximadamente en la mitad del cordon homonimo, se encuentra flanqueado por los cerros Planchon (2034m) por el Este y por el Morro Los Tres Padres (2035m) por el Oeste. Localizado en una zona de antiguo transito de arrieros, el cordon Las Sierrecillas presenta hacia el Este la figura de una virgen la cual es objeto de una popular peregrinacion religiosa todos los 8 de diciembre, mientras que hacia el Sur esta poblado por un hermoso bosque de robles ( Nothofagus macrocarpa ). En esa misma direccion se encuentra el nacimiento del estero del Membrillo, el cual es un afluente del estero Alhue tribuatrio del lago Rapel. Los accesos naturales a este cerro son por el Este, desde el condominio Aguila Sur; o desde el Norte, por la quebrada de Abrantes. Por ambos accesos se llega a la virgen ubicada a unos 1650m de altitud y que no se encuentra lejos de un Cristo junto al cual existe un lugar de campamento en el bosque de robles y que es muy utilizado por arrieros. Tambien es posible acceder a Las Sierrecillas desde el cerro Puerta de la Cordillera desde el Sur o desde el Alto de Cantillana desde el Oeste siguiendo antiguas huellas de arriero."@es ;
+    schema1:latitude -33.95 ;
+    schema1:longitude -70.85 ;
+    schema1:name "Cerro Las Sierrecillas (2062m) - Andeshandbook"@es ;
+    schema1:url andes:1058 .
+
+andes:1059 a andont:MountainRoute ;
+    andont:activityType "Montañismo"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 2354 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El Toro Seco es una poco visitada alternativa de media montana en la Region Metropolitana. Este cerro forma parte de un cordon que es limite oriental de la Reserva Nacional Rio Clarillo , el cual se extiende entre los rios Maipo, por el Noreste, y Clarillo por el Suroeste, ubicandose al poniente del estero Coyanco. Esta cadena de cumbres se inicia desde el Noreste con el Morro Buitrero , continua hacia el Oeste por el San Roque para luego girar hacia el Sur en direccion a la Loma del Diablo . Continuando por el filo desde esta ultima cima son casi 3km hasta el Toro Seco. El cordon se extiende en direccion sur por varios kilometros mas cruzando otros portezuelos y cerros poco visitados y desconocidos para la gran mayoria de los montanistas. La ruta principal de ascenso es compartida en su primera parte con la descrita para ascender el cerro Loma del Diablo , siendo ademas alternativa de ascenso el subirlo directamente desde el valle ingresando por el estero Coyanco o El Sauce. La vista panoramica de esta cumbre abarca el sector de Pirque, destacando hacia el Noroeste los cerros Purgatorio y Blanco , mientras que hacia el Oeste presenta una perspectiva diferente de las altas cumbres de Los Andes metropolitanos, la cual comprende un amplio panorama que abarca desde la Paloma hasta el cerro Castillo . Se desconoce quien realizo su primer ascenso y el origen de su nombre, sin embargo, como la mayoria de los cerros del sector, lo mas probable es que haya sido realizada por arrieros, puesto que esta clase de toponimos es de tipica usanza de esta comunidad. El nombre claramente hace referencia al hallazago de un cadaver de estos vacunos."@es ;
+    schema1:latitude -33.75 ;
+    schema1:longitude -70.4 ;
+    schema1:name "Cerro Toro Seco (2354m) - Andeshandbook"@es ;
+    schema1:url andes:1059 .
+
+andes:1061 a andont:MountainRoute ;
+    andont:activityType "Montañismo"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 1975 ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Talami es una montana de la Cordillera de la Costa ubicada en la comuna de Alhue en la Provincia de Melipilla. Entre quienes la conocen es muy apreciada puesto que en su cumbre se tiene una vista inigualable de buena parte de la cordillera de los Andes. En las laderas del Talami se encuentra un gran bosque de robles, vertientes y petroglifos de origen prehispanico. El significado de la palabra Talami en mapudungun seria \"fracturado\", probablemente derivado de la silueta del cerro visto desde el Noroeste. Ademas existe la antigua creencia de que el diablo nacio en la zona y que enamora mujeres hermosas. Por su parte la palabra Alhue en mapudungun significa \"lugar de los espiritus\" y como senala la refalosa \"Diablito de Talami\", musicalizada por la folclorista Margot Loyola, \"dicen que el diablo nacio entre Pichi y Talami\". El cerro es de facil acceso durante todo el ano. Para esto se debe llegar al pueblo de Alhue y desde ahi continuar hacia El Asiento y luego a Talami desde donde comienza la excursion. Para un ascenso por el dia hay que contar aproximadamente con 8h de ida y vuelta. Al inicio de la ruta hay senderos y ya mas arriba huellas de arrieros que llevan a la bella cumbre. Es posible hacer el ascenso realizando un campamento intermedio para evitar una jornada demasiado extensa y asi aprovechar de disfrutar de las bondades del cerro. Otro posible acceso a esta montana es por el Sur desde la vecina Reserva Nacional Robleria del Cobre de Loncha , sin embargo, es bastante dificil conseguir el acceso a esta area protegida."@es ;
+    schema1:latitude -34.1 ;
+    schema1:longitude -70.983333 ;
+    schema1:name "Cerro Talami (1975m) - Andeshandbook"@es ;
+    schema1:url andes:1061 .
+
+andes:108 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 4650 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El Bismarck, bastante relegado a un segundo plano en estos dias, no lo fue en otros tiempos. De hecho fue ascendido antes que su vecino y hoy mas popular cerro Plomo . Se trata de una excelente ascension para un fin de semana de verano. Es de facil acceso, aunque su sector final demande algunas habilidades en roca y de orientacion. La vista que posee tanto del valle de Molina como del rio Olivares es excepcional. Tambien es un cerro recomendable para invierno, con esquies, en especial esos dias mas calidos de Septiembre - Octubre. Desde el portezuelo de este cerro, y bajando por el estero Paramillos, se llega a el valle del Olivares, que se puede cruzar, y, a traves del Paso de las Pircas, efectuar un interesante cruce de los Andes. Toponimia En los albores del montanismo nacional, aparecio un grupo de audaces expedicionarios- miembros del Deutscher Turnverein (Club Gimnastico Aleman) - que exploro muchas zonas de la cordillera en una epoca en que todo era una aventura (no solo los ultimos 1000 metros de desnivel del cerro; las expediciones partian literalmente de Plaza Italia en ese entonces, y asi fue por mucho tiempo). Gracias al arriero de Las Condes, Jose Alvarado , se internaron en los valles del Mapocho y mas tarde del rio Molina, donde encontraron el cerro Bismarck. El nombre del cerro, que no guarda ninguna relacion con el sector, ni con la tradicion arriera, fue puesto en honor al principe Otto von Bismarck (1815-1898), mas conocido por su trayectoria como Primer Canciller del Imperio Germano y por ser un avezado politico, con reconocimiento en toda Europa. Ocurrio que el viejo canciller cumplia 78 anos el dia en que compatriotas (o descendientes de familias alemanas) ascendian por primera vez (para los registros occidentales) un cerro de considerable altura en medio de los Andes centrales de Chile (1deg de abril). En honor al viejo canciller, en ese entonces nombrado principe por el emperador Guillermo, Brant y Luck bautizaron con su nombre e"@es ;
+    schema1:latitude -33.266667 ;
+    schema1:longitude -70.183333 ;
+    schema1:name "Cerro Bismarck (4650m) - Andeshandbook"@es ;
+    schema1:url andes:108 .
+
+andes:1086 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 5190 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion A menudo solo conocida como una cumbre secundaria del Meson Alto , la Punta Saavedra merece una mejor fama. Con mas de 5000m de altitud, rodeada por numerosos glaciares y con interesantes paredes de roca ofrece diferentes opciones para quien se aventure a conquistar su cumbre. No existe claridad acerca del origen del nombre del cerro. Sin embargo, 2 miembros del grupo que realizo el primer ascenso en 1953 pertenecian al Club Andino Gaston Saavedra por lo que se podria inferir que decidieron bautizar el cerro como un homenaje a su club o al propio Gaston Saavedra o a ambos. Este mencionado primer ascenso fue realizado por J. Duprat y J. Velastin del club NAYS y por; J. Rivera, S. Diaz y H. Aravena del mencionado Club Andino Gaston Saavedra. El segundo ascenso ocurrio en 1962 por Jorge Velastin, Mario Alfaro y Cedomir Marangunic. A la fecha solo se ha abierto una ruta a la cumbre y tambien sigue pendiente la travesia desde ella a la cumbre del Meson Alto . Esta unica ruta es posible de realizar desde el campamento alto de la ruta Normal al Meson Alto que se puede alcanzar tanto desde el estero Cortaderas como desde el Paso Ventana y solo ofreceria algun grado de dificultad tecnica en la arista somital. Referencias Ambrus, Jozsef (1967). Guia de los Andes Centrales. Parte XIII. Zona Pasos Piuquenes - Nieves Negras . Obra inedita (pag. 30). Echevarria, Evelio (1953). Temporada de Andinismo en Chile . Revista Andina Ndeg 79. Club Andino de Chile (pag. 13). San Roman, Gaston (1962). Temporada de Alta Montana 1961-1962 . Anuario de Montana 1962. Feach (pag. 35). Nota para cerros con prominencia menor a 100m El equipo editorial de Andeshandbook publica de preferencia cerros que tienen una prominencia de, al menos, 100m y en el caso de algunas agujas rocosas 50m (1 largo de cuerda). Sin embargo, existen excepciones para cerros con una prominencia menor, originadas por cumplir con una o varias de las siguientes condiciones: Historia: Esto quiere decir que existen"@es ;
+    schema1:latitude -33.683333 ;
+    schema1:longitude -70.033333 ;
+    schema1:name "Punta Saavedra (5190m) - Andeshandbook"@es ;
+    schema1:url andes:1086 .
+
+andes:1095 a andont:MountainRoute ;
+    andont:activityType "Volcán"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 3911 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Extravio, tambien conocido como Alto de las Damas, da la bienvenida a quienes se internen por el valle del rio Maipo a la altura de Las Melosas. Su cumbre divide al estero Extravio al oeste, al estero Las Damas al sureste y el rio Maipo que desciende desde el este. Se presume su nombre y el del estero se lo dieron arrieros del sector. El Extravio fue ascendido por primera vez el 7 de febrero de 1954 por Eberhard Meier y Wolgang Forster, clasica y fuerte cordada del DAV que realizo numerosos primeros ascensos en la zona central. Meier y Forster accedieron al cerro llegando en vehiculo hasta la bocatoma ubicada en el rio Maipo y desde ahi se internaron por el valle del rio Claro y luego por el del Extravio. A continuacion la pareja del DAV ingreso a la quebrada del estero Yeguas Muertas donde armaron un campamento a unos 2500m. Desde ahi ascendieron a la cumbre por la cara Norte del cerro. La cumbre la alcanzaron sin encontrar mayores dificultades tecnicas durante el ascenso. Se desconocen posibles ascensos posteriores al cerro. Este cerro, al igual que su vecino el Cabeza de Novillo y muchos otros cerros del sector han quedado en el olvido de los montanistas debido a las restricciones de acceso que han impuesto el fundo El Ingenio y Gasco, dueno del fundo Cruz de Piedra; este ultimo solo permite bajo ciertas condiciones realizar ascensos al volcan Maipo ( protocolo acceso Fundo Cruz de Piedra ). Referencia San Roman, Gaston (1989), Historia del Andinismo en Chile , Autoedicion (Pag. 63). Meier, Eberhard (1954). Ausflugbericht . Club Aleman Andino (DAV)."@es ;
+    schema1:latitude -33.983333 ;
+    schema1:longitude -70.183333 ;
+    schema1:name "Cerro Extravio (3911m) - Andeshandbook"@es ;
+    schema1:url andes:1095 .
+
+andes:11 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 5197 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El cerro Cortaderas destaca en el valle del Morado entre el Loma Larga y el Punta Italia por su imponente tamano, colorido y admirable punta piramidal. Los multiples paredones y contrafuertes de su flanco sur resguardan celosamente esta montana -haciendola bastante inaccesible-, en cambio por su falda noroeste la rodea un tremendo glaciar que baja casi desde su cumbre. Rutas Glaciar Loma Larga: Abierta por los alemanes Bruening, Maass, Niederer y Hein en 1932. Glaciar Cortaderas: Abierta por Sergio Kunstmann y Ludwig Krahl , 02-01-1954. Variante al Glaciar Cortaderas (\"El Yeti Volador\"): Abierta por Ignacio Hermosilla, Macarena Dominguez y Victor Zavala en 2021. Referencias Vigouroux, Ivan (1988). Guia Informativa de Montanas. Zona Central y Sur de la Cordillera de Los Andes . Federacion de Andinismo de Chile. Maass, Albrecht (1932). Der Cortaderas . Revista Andina, Heft 5, 1932 . Club Aleman Andino (pag 82-87). ( Traduccion de este articulo )."@es ;
+    schema1:latitude -33.7 ;
+    schema1:longitude -69.983333 ;
+    schema1:name "Cerro Cortaderas (5197m) - Andeshandbook"@es ;
+    schema1:url andes:11 .
+
+andes:110 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 3393 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion Un cerro hermoso en invierno y primavera, apto para el randonnee, pero que demanda algun esfuerzo pese a su poca altitud. Aun siendo bastante visible, es un gran desconocido pues el resto de sus vecinos se llevan toda la atencion. Ubicado a medio camino del valle del Yeso, en su costado occidental -a mano izquierda subiendo por el valle-, es una montana que forma parte de la masa de cumbres menores del cerro San Gabriel, y que esta conectada por el filo con el portezuelo Peladeros y el conocido Piuquencillo . Recomendable para una ascension de fin de semana. Nota Aguas Andinas puso un nuevo porton antes de cruzar el estero San Nicolas, por lo tanto ya no hay acceso al cerro descrito. Sin embargo es posible utilizar un camino de prospeccion minera ubicado cerca del acceso para ir al San Gabriel."@es ;
+    schema1:latitude -33.683333 ;
+    schema1:longitude -70.15 ;
+    schema1:name "Cerro Mesoncito (3393m) - Andeshandbook"@es ;
+    schema1:url andes:110 .
+
+andes:1100 a andont:MountainRoute ;
+    andont:activityType "Alta montaña"@es ;
+    andont:difficulty "No especificado"^^xsd:string ;
+    andont:elevation 4830 ;
+    andont:inProtectedArea <http://example.org/environment/protected/SNASPE-001> ;
+    andont:nearStation <http://example.org/environment/station/MMA-001>,
+        <http://example.org/environment/station/MMA-004>,
+        <http://example.org/environment/station/MMA-005> ;
+    retc:nearbyEmitter retc:establecimiento_382001,
+        retc:establecimiento_386114,
+        retc:establecimiento_390112,
+        retc:establecimiento_401205 ;
+    dcterms:source "Andeshandbook.org"^^xsd:string ;
+    schema1:addressRegion "Chile, Region Metropolitana"@es ;
+    schema1:description "Presentacion El celebre montanista chileno nacido en Hungria, Jozsef Ambrus , se confiesa poco aficionado a bautizar cerros con nombres de personas. A lo largo de su trayectoria, plagada de primeros ascensos, le toco bautizar un par de decenas de cerros e hizo en una ocasion una excepcion a sus principios bautizando a una montana ubicada en el Noroeste de la Sierra Esmeralda con el nombre de Chavez tras conseguir, en solitario, su primer ascenso en 1965. Este primer ascenso lo realizo Ambrus como parte de su gran travesia tambien en solitario y que le tomo 8 dias, que partio junto al Gran Salto del Olivares y termino en Farellones. Durante esta travesia, nunca repetida, ademas del Chavez, Ambrus ascendio los cerros Osiecki , Fickenscher , Littoria , Parsifal y Plomo . Dos recuerdos acompanaron a Ambrus durante su travesia que le hicieron cometer el desliz de bautizar un cerro con el nombre de una persona: a los 16 anos fue amonestado por el presidente del Grupo Andino Manke, Francisco Chavez , por haber salido solo a la montana. El segundo recuerdo corresponde a la Semana Santa de 1964 cuando le toco, junto a otros rescatistas, recuperar los cuerpos de Francisco Chavez y Jose Arevalo fallecidos al pie de la canaleta de la Punta Negra . Los montanistas aun se encontraban encordados con la cuerda que Ambrus les habia prestado unos dias antes. Tras haber cruzado las lenguas de los glaciares Olivares Gamma, Beta y Alfa, Ambrus monto un campamento a unos 4700m de altura desde el cual pensaba alcanzar el portezuelo del Osiecki . Antes de salir vio nubes que presagiaban mal tiempo por lo que decidio dar una vuelta corta para intentar ascender la entonces cumbre innominada de 4815m (altura que le otorgaba Lliboutry al cerro). Tras ascender por una canaleta llego a la cumbre Oeste, dejo un testimonio de su ascenso y bajo rapidamente al percatarse de que el tiempo empeoraba. Desde la cumbre Oeste le parecio que la Este era unos 30m mas baja, pero no es algo de lo que pueda es"@es ;
+    schema1:latitude -33.183333 ;
+    schema1:longitude -70.166667 ;
+    schema1:name "Cerro Chavez (4830m) - Andeshandbook"@es ;
+    schema1:url andes:1100 .
+
+andont:ProtectedArea a owl:Class ;
+    rdfs:label "Área Protegida"@es ;
+    rdfs:subClassOf schema1:Place .
+
+andont:EnvironmentalStation a owl:Class ;
+    rdfs:label "Estación de Monitoreo Ambiental"@es .
+
+<http://example.org/environment/protected/SNASPE-001> a andont:ProtectedArea ;
+    env:areaHectares 3009 ;
+    env:category "Monumento Natural"@es ;
+    dcterms:source "SNASPE-CONAF Chile"^^xsd:string ;
+    schema1:addressRegion "Región Metropolitana"@es ;
+    schema1:latitude -33.58 ;
+    schema1:longitude -70.05 ;
+    schema1:name "Monumento Natural El Morado"@es .
+
+andont:MountainRoute a owl:Class ;
+    rdfs:label "Ruta de Montaña"@es ;
+    rdfs:subClassOf schema1:Place .
+
+<http://example.org/environment/station/MMA-001> a andont:EnvironmentalStation ;
+    env:avgValue 25.3 ;
+    env:measuredParameter "PM2.5"^^xsd:string ;
+    env:measurementDate "2025-06-15"^^xsd:date ;
+    dcterms:source "SINIA-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Región Metropolitana"@es ;
+    schema1:latitude -33.6 ;
+    schema1:longitude -70.05 ;
+    schema1:name "Estación Cajón del Maipo"@es .
+
+<http://example.org/environment/station/MMA-004> a andont:EnvironmentalStation ;
+    env:avgValue 30.5 ;
+    env:measuredParameter "PM2.5"^^xsd:string ;
+    env:measurementDate "2025-06-15"^^xsd:date ;
+    dcterms:source "SINIA-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Región Metropolitana"@es ;
+    schema1:latitude -33.67 ;
+    schema1:longitude -70.5 ;
+    schema1:name "Estación Pirque"@es .
+
+<http://example.org/environment/station/MMA-005> a andont:EnvironmentalStation ;
+    env:avgValue 28.7 ;
+    env:measuredParameter "PM10"^^xsd:string ;
+    env:measurementDate "2025-06-15"^^xsd:date ;
+    dcterms:source "SINIA-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Valparaíso"@es ;
+    schema1:latitude -32.83 ;
+    schema1:longitude -70.6 ;
+    schema1:name "Estación Los Andes"@es .
+
+retc:establecimiento_382001 a retc:Establecimiento ;
+    retc:anioReporte 2019 ;
+    retc:comuna "Las Condes"@es ;
+    retc:emisionCO2 8.2 ;
+    retc:emisionMP 0.015 ;
+    retc:emisionSO2 0.008 ;
+    retc:empresa "AGUAS ANDINAS S A" ;
+    retc:idVentanillaUnica 382001 ;
+    retc:residuosNoPeligrosos 15.8 ;
+    retc:residuosPeligrosos 1.2 ;
+    retc:rubro "Captación, tratamiento y distribución de agua"@es ;
+    dcterms:source "RETC-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Region Metropolitana de Santiago"@es ;
+    schema1:name "PLANTA LA FLORIDA"@es ;
+    geo1:lat -33.41 ;
+    geo1:long -70.57 .
+
+retc:establecimiento_386114 a retc:Establecimiento ;
+    retc:anioReporte 2018 ;
+    retc:comuna "Lo Barnechea"@es ;
+    retc:emisionCO2 3.522 ;
+    retc:emisionMP 0.006 ;
+    retc:emisionSO2 0.005 ;
+    retc:empresa "AGUAS MANQUEHUE S A" ;
+    retc:idVentanillaUnica 386114 ;
+    retc:residuosPeligrosos 0.864 ;
+    retc:rubro "Captación, tratamiento y distribución de agua"@es ;
+    dcterms:source "RETC-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Region Metropolitana de Santiago"@es ;
+    schema1:name "PLANTA DE TRATAMIENTO PUNTA DE AGUILAS"@es ;
+    geo1:lat -33.3297 ;
+    geo1:long -70.5482 .
+
+retc:establecimiento_390112 a retc:Establecimiento ;
+    retc:anioReporte 2019 ;
+    retc:comuna "Pirque"@es ;
+    retc:emisionCO2 15.8 ;
+    retc:emisionMP 0.12 ;
+    retc:emisionNOx 0.08 ;
+    retc:emisionSO2 0.03 ;
+    retc:empresa "VIÑA CONCHA Y TORO S A" ;
+    retc:idVentanillaUnica 390112 ;
+    retc:residuosNoPeligrosos 12.5 ;
+    retc:residuosPeligrosos 0.35 ;
+    retc:rubro "Elaboración de bebidas alcohólicas"@es ;
+    dcterms:source "RETC-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Region Metropolitana de Santiago"@es ;
+    schema1:name "PLANTA EMBOTELLADORA PIRQUE"@es ;
+    geo1:lat -33.67 ;
+    geo1:long -70.5 .
+
+retc:establecimiento_401205 a retc:Establecimiento ;
+    retc:anioReporte 2019 ;
+    retc:comuna "San José de Maipo"@es ;
+    retc:emisionCO2 125.4 ;
+    retc:emisionMP 2.34 ;
+    retc:emisionNOx 1.2 ;
+    retc:emisionSO2 0.85 ;
+    retc:empresa "EMPRESA MINERA EL VOLCÁN" ;
+    retc:idVentanillaUnica 401205 ;
+    retc:residuosNoPeligrosos 45.3 ;
+    retc:residuosPeligrosos 5.2 ;
+    retc:rubro "Extracción de minerales no metálicos"@es ;
+    dcterms:source "RETC-MMA Chile"^^xsd:string ;
+    schema1:addressRegion "Region Metropolitana de Santiago"@es ;
+    schema1:name "PLANTA PROCESADORA EL VOLCÁN"@es ;
+    geo1:lat -33.6401 ;
+    geo1:long -70.35 .
+
