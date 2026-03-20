@@ -1,6 +1,10 @@
 # 🏔️ Web Semántica y Datos Abiertos: Montañismo Andino
 **Magíster en Tecnologías de la Información · Q1 2026**
 
+## 👥 Equipo
+* **[Tu Nombre]** - *Rol / Investigador*
+* **[Nombre Integrante]** - *Rol*
+
 > **Construcción de un Grafo de Conocimiento (Knowledge Graph) para la integración de rutas de montañismo en Chile con datos medioambientales e industriales abiertos.**
 
 ## 📖 Introducción
@@ -46,8 +50,5 @@ El desarrollo práctico se encuentra documentado paso a paso:
 3. **Tarea 3: Inteligencia Artificial.** Análisis de la integración del Knowledge Graph con LLMs utilizando el patrón **GraphRAG** (Retrieval-Augmented Generation basado en grafos).
 4. **Tarea 4: Ética y Arquitectura.** Discusión sobre datos abiertos, privacidad y la aplicación del proyecto Solid al ecosistema del montañismo.
 
-## 👥 Equipo
-* **[Tu Nombre]** - *Rol / Investigador*
-* **[Nombre Integrante]** - *Rol*
 
 > **Referencia Principal:** *"Web Semántica: Comprendiendo el cambio hacia la Web 3.0"* — Jose Emilio Labra Gayo.
