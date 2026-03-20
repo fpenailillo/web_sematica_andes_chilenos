@@ -2,8 +2,10 @@
 **Magíster en Tecnologías de la Información · Q1 2026**
 
 ## 👥 Equipo
-* **[Tu Nombre]** - *Rol / Investigador*
-* **[Nombre Integrante]** - *Rol*
+Alonso Sudy - 
+Angelo Rivera -
+Francisco Peñailillo  -
+Robhert Rivera
 
 > **Construcción de un Grafo de Conocimiento (Knowledge Graph) para la integración de rutas de montañismo en Chile con datos medioambientales e industriales abiertos.**
 
