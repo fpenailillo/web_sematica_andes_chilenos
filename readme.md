@@ -39,8 +39,6 @@ El proyecto se apoya fuertemente en los estándares del W3C y metodologías de v
   * **SHACL:** Validación alternativa recomendada por el W3C.
 * **Consultas e Integración:**
   * **SPARQL:** Lenguaje de consulta para el grafo local y consultas federadas (ej. integrando Wikidata).
-* **Análisis Espacial y Visualización:**
-  * **Python, Pandas y Folium:** Procesamiento de datos espaciales y proyección de los resultados de las consultas en mapas interactivos.
 * **Arquitectura y Privacidad:**
   * **Solid / POD:** Arquitectura descentralizada para la gestión de datos personales enlazados aplicados al perfil del montañista.
 
